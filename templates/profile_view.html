@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}<title> Profile </title>{% endblock %}
+{% block navbar %}
+<nav class="navbar navbar-expand-sm bg-black  text-primary-emphasis bg-opacity-75">
+    <div class="container-fluid ">
+        <ul class="navbar-nav  ">
+            <li class="nav-item ">
+                <a class="nav-link text-light fw-bold" href="{{url_for('main.home')}}">HOME</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+{% endblock %}
+{% block body %}
+<div class="text-center py-5" >
+    <div class="container border col-6" >
+        <div class=" border ">
+            <div class=" border  py-2 px-2 text-end " >
+                <a href="{{url_for('main.update',id=contact['_id'])}}" ><button class=" btn btn-primary " > Edit </button></a>
+                <a href="{{url_for('main.delete',id=contact['_id'])}}" ><button class=" btn btn-danger  " > Delete </button></a>
+            </div>
+        </div>
+        <div class="py-2" >
+            <div class=""><img src="{{url_for('static',filename='user_profile_photo/'~contact['Photo'])}}" width="350px" height="350px" alt=""></div>
+        </div>
+
+        <div class="container "  >
+            <div class="row   py-3 text-start "style="margin-left: 100px;margin-right: 100px;" >
+                <div class="col  text-end ms-5 " >
+                    <h5>Name: </h5>
+                </div>
+                <div class="col  " >
+                    <h5> {{contact['Name']}} </h5>
+                </div>
+            </div>
+            <div class="row  py-3 text-start " style="margin-left: 100px;margin-right: 100px;">
+                <div class="col  text-end  "style="margin-left: 50px;" >
+                    <h5>Phone NO:</h5>
+                </div>
+                <div class="col  " >
+                    <h5> {{contact['Phone No']}} </h5>
+                </div>
+            </div>
+
+
+
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

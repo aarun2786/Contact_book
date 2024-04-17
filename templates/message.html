@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Document</title>
+    {% block title %}{% endblock %}
+</head>
+<body>
+    {% block body %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category,mesg in messages %}
+            {% if category == "success" %}
+                <div class="alert alert-success col-15 mt-2 py-2 "role="alert">
+                    {{ mesg }}
+                </div>
+            {% elif category == "error" %}
+                <div class="alert alert-danger col-15 mt-2 py-2 " role="alert">
+                    {{ mesg }}
+                </div>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+    {% endblock %}
+</body>
+</html>
